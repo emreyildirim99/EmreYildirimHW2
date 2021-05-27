@@ -1,0 +1,56 @@
+﻿@model IEnumerable<EmreYildirimTodoWebHW.Models.TodoItem>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome Emre,</h1>
+    <h5>Your Todo list</h5>
+</div>
+
+@if (Model.Any())
+{
+
+
+    <table class="table table-striped table-dark">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RemainingHour)
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Title)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.RemainingHour) hours
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="text-center">
+        <h1 class="display-4"> Congrats! You completed all!</h1>
+    </div>
+}
