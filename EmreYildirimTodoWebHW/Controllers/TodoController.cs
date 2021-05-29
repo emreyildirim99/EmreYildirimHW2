@@ -20,7 +20,7 @@ namespace EmreYildirimTodoWebHW.Controllers
         }
 
         // GET: Todo
-        public async Task<IActionResult> Index(SearchViewModel searchModel, int? id)
+        public async Task<IActionResult> Index(SearchViewModel searchModel, int? categoryID)
         {
             
             var query = _context.TodoItems.Include(t => t.Category).AsQueryable();
@@ -34,9 +34,9 @@ namespace EmreYildirimTodoWebHW.Controllers
                 query = query.Where(t => t.Title.Contains(searchModel.SearchText));
             }
             
-            if (id > 0)
+            if (categoryID > 0)
             {
-                query = query.Where(t => t.CategoryId == id);
+                query = query.Where(t => t.CategoryId == categoryID);
             }
 
             query = query.OrderBy(t => t.DueDate);

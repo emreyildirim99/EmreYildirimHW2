@@ -40,12 +40,9 @@
                                                </button>
                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                    
-                                                  @* <a class="dropdown-item" asp-route-id="2" asp-controller="Todo" asp-action="Index">Hobbies</a>
-                                                   <a class="dropdown-item" asp-route-id="3" asp-controller="Todo" asp-action="Index">Courses</a>
-                                                   <a class="dropdown-item" asp-route-id="4" asp-controller="Todo" asp-action="Index">Work</a>*@
                                                   @foreach (var myObject in data)
                                                        {
-                                                           <a class="dropdown-item" asp-route-id="@myObject.Id" asp-controller="Todo" asp-action="Index">@myObject.Name</a>
+                                                           <a class="dropdown-item" asp-route-categoryID="@myObject.Id" asp-controller="Todo" asp-action="Index">@myObject.Name</a>
                                                        }
                                                    
                                                </div>
